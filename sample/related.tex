@@ -1,0 +1,132 @@
+\chapter{Related Work} \label{chap:related}
+
+
+\section{Live streaming and 360\degree{} video streaming}
+First, to the best of our knowledge, few previous work, if any, have
+measured or analyzed 360\degree{} live video streaming. However, there
+is a large corpus of work in two related areas: \emph{personalized live streaming} and \emph{360\degree{} video streaming}.
+
+\textbf{Living Streaming} broadcasts users themselves
+and their surroundings using their (mobile) devices; viewers all
+over the world can watch the live feed in real time. In 2016, two
+papers~\cite{siekkinen2016first,wang2016anatomy} simultaneously studied Periscope and Meerkat, back
+then the most popular platforms for personalized streaming on Android
+and iOS mobile devices. Although different in their methodologies,
+these two papers have a similar goal: shed some light on the
+architecture (\emph{e.g.}, protocols and settings), the scale (\emph{e.g.}, the number
+of broadcasters), and the performance (\emph{e.g.}, video quality and stalls)
+of both streaming platforms. Our paper shares a similar goal but
+in the context of 360\degree{} live video streaming offered by two different
+platforms, YouTube and Facebook. Accordingly, our methodology in \lime
+largely departs from the approaches proposed in~\cite{siekkinen2016first,wang2016anatomy}, as well
+as our observations. Another recent paper~\cite{tang2016meerkat} studied the content and human
+factors for Periscope and Meerkat.
+
+Twitch is another popular platform for personalized live streaming,
+with its primary focus on gaming broadcasting. Twitch differs
+from Periscope and Meerkat since its broadcasters are mostly not
+mobile. Pires \emph{et al}. \cite{pires2015youtube} were the first to look into Twitch (and
+YouTube Live) back in 2015. Using a three-month dataset, they
+showed the importance of Twitch with traffic peaks at more than
+1 Tbps and millions of uploaded videos. Also in 2015, Zhang \emph{et al}. \cite{zhang2015crowdsourced} preliminarily investigated Twitch’s infrastructure using
+both crawled data and captured traffic of local broadcasters/viewers.
+More recently, Deng \emph{et al}. \cite{deng2017internet} expanded the latter study by exploring
+Twitch’s infrastructure via a network of free proxies located
+worldwide. They identified a geo-distributed infrastructure with
+fine-grained server allocations, i.e., resources are dynamically allocated
+to live streaming events based on their (growing) popularity.
+There are also some earlier measurements on other live
+streaming platforms such as live Internet TV and P2P live streaming
+\cite{hei2007measurement,kaytoue2012watch,li2011measurement,silverston2007measuring,sripanidkulchai2004analysis}. The scope of \lime largely departs from them since we
+focus on different content (360\degree{} live videos) and platforms (YouTube
+and Facebook).
+
+\textbf{360\degree{} Video Streaming} has become a hot research topic recently.
+Researchers have investigated multiple aspects including projection/encoding methods \cite{kuzyakov2016next,kuzyakov2015under,lee2016rich360,nasrabadi2017adaptive,zhou2017measurement}, energy consumption \cite{jiang2017power},
+viewport-adaptive streaming \cite{almquist2018prefetch,bao2016shooting,corbillon2017optimal,corbillon2017viewport,graf2017towards,petrangeli2017http,qian2016optimizing,qian2018flare,xiao2017optile,xie2017360probdash,xie2018cls},
+cross-layer interaction \cite{sun2018multi,xie2017poi360}, and user experience \cite{broeck2017s}, \emph{etc}. Most
+of the above studies focused on non-live 360\degree{} videos and none of
+them investigated commercial 360\degree{} video streaming platforms as
+we have done using crowd-sourcing.
+
+In 2017, Afzal \emph{et al}. \cite{afzal2017characterization} studied the characteristics of (non-live)
+360\degree{} videos uploaded to YouTube by simply searching for such
+videos using keywords like ``360''. By analyzing a dataset of 4570
+videos, they found that compared to regular videos, 360\degree{} videos
+tend to be shorter, having higher resolutions, and more static (less
+motion). \lime complements this effort since we focus on the
+streaming performance rather than the 360\degree{} video characteristics. Furthermore, \lime investigates live streaming and expand our analysis
+to Facebook as well.
+
+In 2017, our positioning workshop paper
+conducted a preliminary investigation of 360\degree{} live videos \cite{liu2017360}. \lime goes beyond \cite{liu2017360} by making several contributions: developing
+a holistic measurement system for live videos, conducting crowdsourced
+measurements for live 360\degree{} videos, and quantifying the
+benefits of several key optimizations.
+
+\section{Mobile VR}
+In Chapter~\S\ref{chap:vr} we design and implement a multi-user mobile VR system \firefly. In literature relevant systems have been proposed, however they are all tested under certain single user scenarios, and there lack systematic study on its
+multi-user counterpart.
+
+\textbf{Single-user Mobile VR} has been well investigated in literature.
+Furion \cite{lai2019furion} and Flashback \cite{boos2016flashback} demonstrate
+high-quality single-user VR on COTS smartphones.
+MoVR \cite{abari2016cutting,abari2017enabling} employs 60 GHz mmWave wireless for mobile
+VR. Liu \emph{et al.} \cite{liu2018cutting} proposed system-level optimizations
+for the mobile VR rendering pipeline. Tan \emph{et al.} explored supporting
+mobile VR over LTE \cite{tan2018vr}. None of the above work
+explicitly focuses on the multi-user scenario.
+
+\textbf{Multi-user VR/AR}. Despite a plethora of work on single user
+VR, much fewer studies have been conducted on
+multi-user environment. The most relevant work to \firefly is
+MUVR \cite{li2018muvr} which can only be simulated to support 4 concurrent VR users.
+Bao \emph{et al.} developed
+a multi-user 360° video streaming system based on
+multicast \cite{bao2017motion}. A recent positioning paper \cite{liu2019supporting} discusses several
+practical issues of designing a multi-user VR system
+(without system implementation). Some studies investigated
+multi-user or collaborative augmented reality (AR) \cite{qiu2018avr,ran2019sharear,zhang2018cars}.
+Compared to the above work, \firefly is a generic multi-user
+VR system. It achieves much better scalability compared to
+MUVR.
+
+
+\section{Characterizing Android Wear OS}
+
+\textbf{Mobile devices ``in the wild''}. Researchers have carried out numerous
+crowd-sourced measurements of smartphones~\cite{huang10,falaki10_mobisys,shepard10,phonelab,qian12_mobisys,rosen15_imc,nikravesh15_mobisys,chen15:sigmetrics}. While they partially motivate our smartwatch user study, much fewer efforts have been made for wearable devices.
+Among them,
+Gouveia \etal studied how users engage with activity trackers~\cite{gouveia15_ubicomp}.
+%
+Lazar \etal interviewed 17 participants to study the incentives of using and abandoning smart devices~\cite{lazar15_ubicomp}.
+%
+Lyons studied usage practices of traditional dumb watches by conducting a user survey~\cite{lyons15_iswc}.
+%
+Min \etal characterized smartwatch battery use based on online survey and a user study involving 17 users~\cite{min15_iswc}. They studied users' satisfaction toward smartwatch life, charging behaviors,
+and interaction patterns.
+%
+In a recent extended abstract~\cite{poyraz_iiswc16}, Poyraz \etal also described their smartwatch user study involving 32 users for 70 days. Using the collected data, they analyzed the watches' power consumption and characterized user activities. While the detailed data collection and measurement methodologies were not fully documented, many of their findings such as the active state's high energy contribution compared to its short usage duration are qualitatively similar to ours.
+%
+Compared to~\cite{min15_iswc} and~\cite{poyraz_iiswc16}, we instead investigate a much wider spectrum of characteristics such as push notification, app usage, and network traffic by leveraging a much richer set of data items collected in Table~\ref{tab:data}.
+
+\textbf{Android Wear OS}. Recently, Liu \etal analyzed the execution of Android Wear OS and presented a series of inefficiencies and OS implications~\cite{liu16_mobisys,liu15_apsys}.
+Compared to its in-lab, controlled experiments, our study on Android smartwatch contributes the understanding of real-world wearable usage as well as the entailed design implications -- backed by more solid evidence.
+Furthermore, our study characterizes key system aspects that were missing in the prior work, most notably power modeling and network behaviors.
+
+\textbf{Other wearable system and applications} have also been studied in literature.
+LiKamWa \etal characterized the energy consumption of Google Glass~\cite{likamwa13_apsys}.
+%
+Huang \etal proposed a fast storage system for wearables based on battery-backed RAM and offloading~\cite{huang15_atc}.
+%
+Santagati \etal designed an ultrasonic networking framework for wearable
+medical devices~\cite{santagati15_mobisys}.
+%
+Miao \etal investigated the implications of smartwatches' circular display on resource usage~\cite{miao16_hotmobile}.
+%
+Ham \etal proposed a novel display energy conservation scheme for wearables~\cite{ham15_atc}.
+%
+There also exists a large body of work from the mobile computing, sensing, and HCI community. These studies focus on novel wearable applications~\cite{shen16_mobisys, nirjon15_mobisys,mayberry14_mobisys}, wearable user interface design~\cite{chen14_chi, plaumann16_iswc}, and wearable security~\cite{wang15_mobicom, liu15_ccs}.
+%
+In contrast, our smartwatch measurement focuses on characterizing wearable user behavior, application usage, energy consumption, and network traffic -- all in the wild.
+

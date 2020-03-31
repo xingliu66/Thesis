@@ -1,0 +1,88 @@
+\chapter{Introduction} \label{chap:intro}
+
+Emerging mobile applications have experienced a bloom in the recent years particularly thanks to the growing diversity and capability of mobile gadgets, namely handheld, head mounted, and wearable devices. As reported by Statista~\cite{VRARusers}, the total number of VR/AR users has doubled from 60 millions to 125 millions over the past 4 years, and will continue to show steady growth in the future. Also, wearable device usage is becoming more and more common and its user base is expanding at a remarkable pace. As documented~\cite{wearableusers}, the amount of wearable device users has increased 124\% compared with 4 years ago, with the total number reaching 57 millions as of 2019. Despite the popularity of emerging mobile devices and their applications, there remain three major challenges associated with developers and their mass users.
+
+First, we lack a systematic understanding of the ecosystem of emerging mobile applications. Novel streaming service such as 360\degree{} live video allows users to enjoy real-time \emph{panoramic} content from their smartphones, tablets, even web browsers. Although being increasingly popular, the service is still relatively new to the commercial market, and we are unfamiliar with its live characteristics such as bandwidth consumption, streaming quality, latency, stalls, \emph{etc}. Also, the high data rate of panoramic content makes its QoE being more sensitive to challenging network condition. For example, in our user study we found that more than 65\% of the 360\degree{} live viewing sessions produce a lower perceived image quality than 480P. Therefore, QoE of 360\degree{} live video streaming needs to be improved, and a systematic characterization is the first step.
+
+Second, emerging mobile applications such as untethered VR pose stringent requirements for computation and networking, whose capability are often limited in a mobile usage scenario. In particular, today's commodity mobile devices are far from being powerful enough to perform heavy-duty real-time rendering for high-quality VR. A naive solution is to build an real-time offloading model where rendering tasks are distributed to edge server, however previous studies~\cite{boos2016flashback,lai2019furion} indicate that this approach incurs overwhelming bandwidth usage by streaming the rendered content to mobile clients. Another key challenge is multi-user scalability, which calls for strategic decisions of splitting the client-server
+workload, as well as scalable approaches for rendering and distributing
+the content.
+
+Third, emerging mobile applications, for example wearable apps, are operating under tight energy budget. Based on our findings, the battery capacity of a typical smartwatch is only 10\% $\sim$ 25\% compared to that of smartphones. The average standby time for popular off-the-shelf smartwatches is only around 40 hours, much lesser compared with traditional watches. Practicing good energy efficiency is especially important for smartwatches given its small battery capacity. In literature, very few efforts have been made on understanding the energy profile and usage behavior of smartwatch, not to mention optimizing its energy efficiency.
+
+My thesis is dedicated to address above challenges for three representative emerging mobile applications which are \emph{360\degree{} live video}, \emph{untethered VR}, and \emph{wearable applications}. The goal is to \emph{uncover their unique characteristics, propose optimizations towards major inefficiencies, and implement empirical system to improve the QoE}. Here I elaborate the contributions of my dissertation in the following three sections.
+
+
+\section{\emph{Measuring the State of the Art}: Understanding Commercial 360\degree{} Live Video Streaming Services}
+
+%summarize problem.
+%summarize approach.
+%summarize contributions.
+
+Personalized 360\degree{} live video streaming is an increasingly popular mobile service that allows a broadcaster to share panoramic videos in real time with worldwide viewers. Compared to video-on-demand (VOD) streaming, experimenting with live broadcast is harder due to its intrinsic live nature, the need for worldwide viewers, and a more complex data collection pipeline. In addition, 360\degree{} live video requires much higher bandwidth to provide the same perceived quality as regular
+video streaming. It has more
+stringent QoE requirements to prevent VR
+motion sickness, and it incurs higher workload across all entities:
+\emph{broadcasters}, \emph{streaming infrastructure}, and \emph{viewers}.
+
+We provided insights for today’s commercial 360\degree{} live video streaming services. The overall goals are two-fold. First, due to
+a lack of measurement tools, we develop a measurement system
+called \lime (LIve video MEasurement platform), which allows researchers
+to conduct crowd-sourced measurements on commercial
+or experimental live streaming platforms. Second, we present, to
+the best of our knowledge, a first study of 360\degree{} personalized live
+video streaming on commercial platforms. We select YouTube and
+Facebook as the target platforms given their popularity.
+
+To summarize, we made the following contributions. First, the \lime infrastructure itself is a generic, holistic, and crowd-sourced measurement system.
+LIME can be used in conjunction with the majority of today’s commercial live video streaming platforms. 
+Second, leveraging \lime, we collected data from 548 users in 35 countries who have watched more than 4,000 minutes of 360\degree{} live videos. We use this dataset to examine 360\degree{} live video streaming performance in the wild.
+Third, we quantified the impact of viewport adaptiveness on 360\degree{} live video streaming, and identified inefficiencies of commercial platforms that diminish the benefits of viewport adaptiveness.
+
+
+\section{\emph{Improving the Quality of Experience}: Engineering High Quality Untethered Multi-user VR over Enterprise Wi-Fi}
+Virtual Reality has registered numerous applications. Despite the recent trend of ``cutting the cord'' and making VR untethered over wireless networks, providing immersive user experience on mobile devices still poses numerous challenges. 
+The CPU/GPU power of a smartphone is at least one order of magnitude lower than its desktop counterpart~\cite{satyanarayanan2019computing}, not to mention the energy/heat constraints;
+the heterogeneity of their computational capabilities should also to be taken into consideration;
+stringent network requirements (delay and data rates) of untethered VR can be hardly supported by state-of-the-art wireless networks;
+another key challenge is multi-user scalability, which makes above limitations even more urgent. 
+
+We designed, implemented, and evaluated an untethered multi-user VR system, called \firefly, that supports more than 10 users to simultaneously enjoy high-quality VR content using a single commodity server, a single WiFi access point (AP), and commercial off-the-shelf (COTS) mobile devices. 
+\firefly employs a series of techniques including offline content preparation,
+viewport-adaptive streaming with motion prediction, adaptive
+content quality control among users, to name a few, to ensure
+good image quality, low motion-to-photon delay, high frame
+rate at 60 FPS, scalability with respect to the number of users,
+and fairness among users.
+
+\firefly is to our knowledge the first system that can scale
+untethered multi-user mobile VR. We make multi-fold contributions:
+(1) the design of \firefly, (2) a study of real VR users’ motion, and
+(3) our prototype implementation that demonstrates the support of 15 VR 
+users at 60 FPS using COTS smartphones and a single AP/server. With emerging
+wireless technologies (\emph{e.g.}, 802.11ax and 5G), we believe that \firefly has 
+the potential to scale up to even more users.
+
+
+
+\section{\emph{Optimizing the Energy Efficiency}: Characterizing Wearable Usage In The Wild}
+Smartwatch has become one of the most popular wearable computers on the market. It brings convenience into our daily routine by enabling various interactions such as push notifications, health tracking, voice command, navigation, \emph{etc}.    
+Smartwatches are operating under limited energy budget. The battery capacity of a typical smartwatch is only 10\% $\sim$ 25\% compared to that of smartphones.
+Charging a watch usually requires special charging dock, making it difficult for users
+to charge the watches during the day. It is critical to ensure energy efficient practice for smartwatches since a shortened standby time will undermine user experience.
+
+The very first step towards optimizing smartwatches' energy efficiency is to systematically understand their usage in the wild. To this end, we conducted an IRB-approved measurement study involving 27 Android smartwatch users. Using
+a 106-day dataset collected from our participants, we performed in-depth
+characterization of three key aspects of smartwatch usage “in
+the wild”: usage patterns, energy consumption, and network traffic. 
+
+Our contributions towards optimizing smartwatch energy efficiency can be summarized as follows. First, we developed a automated, lightweight, and self-contained measurement data collection system. The data collection infrastructure is compatible with any smartwatch that runs Android Wear OS. Second, We derived accurate and comprehensive power models for popular commodity Android Wear watches. Third, we performed systematic measurements of smartwatches’ usage
+patterns, energy consumption profiles, and network traffic characteristics
+using a 106-day dataset collected from 27 users. Based on
+our findings, we identified key aspects in the smartwatch ecosystems
+that can be further improved, and provided insights towards optimizing energy efficiency.
+
+
+\section{Thesis Organization}
+
+This dissertation is structured as follows...

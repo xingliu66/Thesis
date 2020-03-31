@@ -1,0 +1,62 @@
+\begin{table*}[t]
+\centering
+    \begin{footnotesize}
+				\begin{tabular}{l|l|l}
+				\multicolumn{1}{c}{\MR{Component}}               & \multicolumn{2}{|c}{Power Consumption (mW) } \\ \cline{2-3}
+				                             & \multicolumn{1}{c}{LG Urbane (user study)}    &   \multicolumn{1}{|c}{LG Watch R}             \\
+				\hline
+				Dozing base + display        &  24.3 (base 12.1 + display 12.2)              &   22.7 (base 10.7 + display 12.0)             \\
+				%Dozing display               &  12.2                                         &   12.0                  \\
+				%Doze (watch face off)       &  10.5 for the entire device                   &   10.8 for the entire device                  \\
+				%Doze watch face display     &  12.2                                         &   11.9                                        \\
+				Sleeping base                   &  14.5                                         &   17.6                                       \\
+				Wake-up base                 &  47.1                                         &   54.9                                        \\
+				\hline
+				CPU                          &  $214.0u$, $u \in$ (0,1]: CPU util.           &   $216.2u$, $u \in$ (0,1]                     \\
+				%\hline
+				%Dozing display                 &  12.2                                         &   12.0 \\
+				\hline
+				\multicolumn{3}{l}{Wake-up display power = $\sum{(c_r \cdot r+c_g \cdot g+c_b \cdot b+C)/K}$, Per-pixel $r,g,b \in$} \\
+				\multicolumn{3}{l}{[0, 255], K = 320*320. Values of \{$c_r$, $c_g$, $c_b$, $C$\} are listed below.} \\
+				\hline
+				Wake-up brightness 1        & \{.023, .060, .084, 67.2\}                    &   \{.014, .036, .092, 60.6\}                 \\
+				Wake-up brightness 2        & \{.034, .071, .129, 67.2\}                    &   \{.027, .060, .126, 60.6\}                 \\
+				Wake-up brightness 3        & \{.041, .092, .167, 67.2\}                    &   \{.029, .077, .159, 60.6\}                 \\
+				Wake-up brightness 4        & \{.055, .120, .201, 67.2\}                    &   \{.044, .096, .210, 60.6\}                 \\
+				Wake-up brightness 5        & \{.058, .144, .236, 67.2\}                    &   \{.065, .127, .255, 60.6\}                 \\
+				Wake-up brightness 6        & \{.076, .179, .303, 67.2\}                    &   \{.077, .163, .325, 60.6\}                 \\
+				\hline
+				BT Tail                      & 4.77 sec, Power: 34.1                         &   4.00 sec, Power: 13.88           \\
+				BT Data ($\sim$ 0.5m)        & Tx: 111.5, Rx: 117.2                          &   Tx: 103.0, Rx: 104.6                       \\
+				BT Data ($\sim$ 5m)          & Tx: 132.9, Rx: 116.2                          &   Tx: 121.5, Rx:  97.3                       \\
+				BT Data ($\sim$ 10m)         & Tx: 130.8, Rx: 113.9                          &   Tx: 120.9, Rx:  98.2                       \\
+				BT Scan                      & 146.0                                         &   155.1                                       \\
+				\hline
+				Screen touch/swipe           & 198.9                                         &   182.3                                      \\
+				\end{tabular}
+    \end{footnotesize}
+    			 \captionof{table}{\footnotesize Derived power models for LG Watch Urbane and LG Watch R.}
+			\label{tab:model}
+ %\vspace{-.1in}
+\end{table*}
+
+
+\begin{table}[t]
+\centering
+\footnotesize
+\begin{tabular}{l|l}
+\multicolumn{1}{c|}{Component}                    & \multicolumn{1}{c}{Power (mW)} \\
+\hline
+Wi-Fi Tail                   & 0.18 sec, Power: 121.2  \\
+Wi-Fi Promotion              & 0.30 sec, Power: 242.5  \\
+Wi-Fi Data (-42 dBm)         & Tx: 669.1, Rx: 378.5              \\
+Wi-Fi Data (-55 dBm)         & Tx: 672.8, Rx: 343.0              \\
+Wi-Fi Data (-65 dBm)         & Tx: 840.7, Rx: 341.8              \\
+Wi-Fi Scan                   & 252.3                             \\
+\end{tabular}
+%\vspace{-.1in}
+\caption{\footnotesize Wi-Fi power model for LG Urbane.}
+%\vspace{-.1in}
+\label{tab:wifi_power}
+\end{table}
+

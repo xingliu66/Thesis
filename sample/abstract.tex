@@ -1,0 +1,23 @@
+\startabstractpage{
+Characterizing and Optimizing Emerging Mobile Applications From the System Perspective}{Xing Liu}{Chair: Zhi-Li Zhang}
+The past few years have witnessed exciting mobile technologies advances: high-speed LTE access has become a norm, mobile devices are unprecedentedly powerful, VR/AR has eventually stepped out of the lab, wearable devices are waving computing into our daily lives, \emph{etc}.
+ Although above remarkable achievements have boosted the emergence of various novel mobile applications, there still remains three major challenges for researchers, developers as well as the mass mobile users. First, emerging mobile applications are still relatively new to the commercial market, and the research community lacks a thorough understanding of their ecosystem. 
+ Second, emerging mobile applications pose stringent requirements for computing and networking capability, leaving their quality of experience (QoE) suffers in the presence of constrained mobile CPU/GPU and challenging network condition. 
+ Third, emerging mobile applications are operating under tight battery budget, however they often time incur non-trivial energy overhead. 
+ My dissertation is dedicated to address above challenges identified in three representative emerging mobile usage scenarios: \emph{360\degree{} live video}, \emph{Virtual Reality(VR)}, and \emph{wearable applications}. 
+ The goal is to uncover their unique characteristics by comprehensive measurements, propose optimizations towards their major inefficiencies, and implement empirical system to improve the QoE.
+  Specifically, we designed and implemented \lime (LIve video MEasurement platform), a generic and holistic system allowing researchers to conduct crowd-sourced measurements with 360\degree{} live video streaming. We utilized \lime to perform a first study of personalized 360\degree{} live video streaming on popular commercial platforms. \lime reveals significant network utilization inefficiencies across different streaming platforms that were previously ignored. Our findings suggested that bringing viewport-adaptive streaming into 360\degree{} live video could significantly improve viewer side QoE in the presence of challenging network conditions. 
+ Inspired by the 360\degree{} video measurement study, we further studied generic VR. We designed, implemented, and evaluated an untethered multi-user VR system, called \firefly, that supports more than 10
+ users to simultaneously enjoy high-quality VR content using a
+ single commodity server, a single WiFi access point (AP), and commercial
+ off-the-shelf (COTS) mobile devices. \firefly employed
+ a series of innovations to adapt to the stringent networking and rendering requirements of supporting high quality VR on commodity smartphones. Our prototype of \firefly demonstrated, for
+ the first time, the feasibility of supporting 15 mobile VR users
+ at 60 FPS using COTS smartphones and a single AP/server.
+ We also performed in-depth characterization of emerging wearable applications. In particular. We conducted an IRB-approved
+ measurement study involving 27 Android smartwatch users. Using
+ a 106-day dataset collected from our participants, we performed indepth
+ characterization of three key aspects of smartwatch usage “in
+ the wild”: usage patterns, energy consumption, and network traffic.
+ Our findings revealed root causes for wearables' shortened battery life and we proposed optimizations to further improve the energy efficiency of smartwatches. 
+\label{Abstract}
